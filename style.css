@@ -6,14 +6,22 @@
 }
 
 
-/* Conteúdo */
-body {
-    display: flex;
-    height: 80vh;
-    align-items: center;
-    justify-content: center;
+/* Navegação */
+
+nav{
+    height: 5vh;
 }
 
-h1 {
-    font-size: 10vh;
+nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+nav ul a{
+    text-decoration: none;
+}
+
+nav ul li img{
+    height: 10vh;
 }
