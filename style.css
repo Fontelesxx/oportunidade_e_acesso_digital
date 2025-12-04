@@ -1,0 +1,19 @@
+/* Reset simples */
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+
+/* Conteúdo */
+body {
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 10vh;
+}
