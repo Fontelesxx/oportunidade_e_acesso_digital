@@ -8,20 +8,93 @@
 
 /* Navegação */
 
-nav{
-    height: 5vh;
+nav li img{
+    height: 6vh;
 }
 
-nav ul{
-    display: flex;
-    list-style: none;
-    justify-content: space-around;
-}
 
-nav ul a{
+nav li a{
     text-decoration: none;
+    color: rgb(0, 0, 0);
 }
 
-nav ul li img{
-    height: 10vh;
+nav li{
+    list-style: none;
+
 }
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    height: 8vh;
+    align-items: center;
+    padding: 2vh;
+    background-color: rgba(255, 255, 255, 0.534) ;;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: 0.4s;
+    font-size: 3vh;
+    z-index: 1000;
+}
+
+
+nav.scrolled{
+    background: rgba(255, 255, 255, 0.76) ;
+    backdrop-filter: blur(10px);
+    height: 6vh;
+    font-size: 2.5vh;
+}
+
+
+
+/* INICIO */
+
+#container_inicio{
+    display: flex;
+    justify-content: center;
+}
+
+#foto_inicio{
+    display: flex;
+    background-image: url(img/periferia.jpg);
+    width: 98%;
+    border-radius: 3vh;
+    height: 70vh;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    gap: 4vh;
+}
+
+#slogan{
+    font-size: 10vh;
+    width: 100vh;
+    font-weight: 60;
+}
+
+#slogan strong{
+    font-weight: 800;
+}
+
+#logo{
+    height: 40vh;
+}
+
+p{
+    height: 100vh;
+}
+
+
+
+/* SOBRE */
+
+#historia{
+    width: 50%;
+}
+
+
+/* SOBRE ADICIONAL */
