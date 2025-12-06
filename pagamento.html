@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça sua Doação | OAD</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Estilos específicos desta página -->
+    <style>
+        /* ========================================
+           ESTILOS DA PÁGINA DE PAGAMENTO
+        ======================================== */
+        
+        /* Container principal */
+        .payment-page {
+            min-height: 100vh;
+            background: var(--fundo-secundario);
+        }
+        
+        /* Header simplificado */
+        .payment-header {
+            background: var(--fundo-primario);
+            border-bottom: 1px solid var(--cor-borda);
+            padding: var(--espacamento-sm) 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--espacamento-xs);
+            color: var(--texto-secundario);
+            font-weight: 500;
+            transition: color var(--transicao-rapida);
+        }
+        
+        .back-link:hover {
+            color: var(--cor-laranja);
+        }
+        
+        /* Conteúdo principal */
+        .payment-content {
+            padding: var(--espacamento-xl) 0;
+        }
+        
+        .payment-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* Título da página */
+        .payment-title {
+            text-align: center;
+            margin-bottom: var(--espacamento-xl);
+        }
+        
+        .payment-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--cor-laranja);
+            color: var(--texto-claro);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto var(--espacamento-sm);
+        }
+        
+        .payment-title h1 {
+            font-size: 2rem;
+            margin-bottom: var(--espacamento-xs);
+        }
+        
+        .payment-title p {
+            color: var(--texto-secundario);
+        }
+        
+        /* Grid de duas colunas */
+        .payment-grid {
+            display: grid;
+            gap: var(--espacamento-lg);
+        }
+        
+        /* Cards de opções */
+        .payment-card {
+            background: var(--fundo-primario);
+            border-radius: var(--radius-xl);
+            padding: var(--espacamento-lg);
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .payment-card h2 {
+            font-size: 1.125rem;
+            margin-bottom: var(--espacamento-md);
+        }
+        
+        /* Grid de valores */
+        .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espacamento-sm);
+            margin-bottom: var(--espacamento-sm);
+        }
+        
+        .amount-btn {
+            padding: var(--espacamento-sm);
+            border: 2px solid var(--cor-borda);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--texto-primario);
+            transition: all var(--transicao-normal);
+            cursor: pointer;
+        }
+        
+        .amount-btn:hover {
+            border-color: var(--cor-laranja);
+            background: rgba(249, 115, 22, 0.05);
+        }
+        
+        .amount-btn.active {
+            border-color: var(--cor-laranja);
+            background: var(--cor-laranja);
+            color: var(--texto-claro);
+        }
+        
+        /* Input de valor customizado */
+        .custom-amount {
+            position: relative;
+        }
+        
+        .custom-amount span {
+            position: absolute;
+            left: var(--espacamento-sm);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--texto-secundario);
+            font-weight: 500;
+        }
+        
+        .custom-amount input {
+            width: 100%;
+            padding: var(--espacamento-sm);
+            padding-left: var(--espacamento-xl);
+            border: 2px solid var(--cor-borda);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color var(--transicao-rapida);
+        }
+        
+        .custom-amount input:focus {
+            outline: none;
+            border-color: var(--cor-laranja);
+        }
+        
+        /* Opções de pagamento */
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espacamento-sm);
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: var(--espacamento-sm);
+            padding: var(--espacamento-sm);
+            border: 2px solid var(--cor-borda);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transicao-normal);
+        }
+        
+        .payment-method:hover {
+            border-color: var(--cor-laranja);
+        }
+        
+        .payment-method.active {
+            border-color: var(--cor-laranja);
+            background: rgba(249, 115, 22, 0.05);
+        }
+        
+        .method-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--fundo-secundario);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all var(--transicao-normal);
+        }
+        
+        .payment-method.active .method-icon {
+            background: var(--cor-laranja);
+        }
+        
+        .method-info {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .method-info strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .method-info span {
+            font-size: 0.875rem;
+            color: var(--texto-secundario);
+        }
+        
+        .method-check {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--cor-borda);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--texto-claro);
+            font-size: 0.75rem;
+            transition: all var(--transicao-normal);
+        }
+        
+        .payment-method.active .method-check {
+            background: var(--cor-laranja);
+            border-color: var(--cor-laranja);
+        }
+        
+        /* Card de resumo */
+        .summary-card {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--espacamento-sm) 0;
+            border-bottom: 1px solid var(--cor-borda);
+        }
+        
+        .summary-line span:first-child {
+            color: var(--texto-secundario);
+        }
+        
+        .summary-line span:last-child {
+            font-weight: 600;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--espacamento-sm) 0;
+            margin-bottom: var(--espacamento-md);
+        }
+        
+        .summary-total span:first-child {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .summary-total span:last-child {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cor-laranja);
+        }
+        
+        /* Botão de finalizar */
+        .finalize-btn {
+            width: 100%;
+            padding: var(--espacamento-md);
+            font-size: 1rem;
+        }
+        
+        .finalize-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Nota de segurança */
+        .security-note {
+            text-align: center;
+            margin-top: var(--espacamento-md);
+        }
+        
+        .security-note p {
+            font-size: 0.75rem;
+            color: var(--texto-secundario);
+            margin-bottom: var(--espacamento-xs);
+        }
+        
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: var(--espacamento-sm);
+        }
+        
+        .security-badge {
+            padding: 4px 8px;
+            background: var(--fundo-secundario);
+            border-radius: 4px;
+            font-size: 0.625rem;
+            font-weight: 700;
+            color: var(--texto-secundario);
+        }
+        
+        /* Mensagem de impacto */
+        .impact-message {
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--espacamento-md);
+            text-align: center;
+            margin-top: var(--espacamento-lg);
+        }
+        
+        .impact-message strong {
+            color: var(--texto-primario);
+        }
+        
+        /* Nota ilustrativa */
+        .illustrative-note {
+            font-size: 0.75rem;
+            color: var(--texto-secundario);
+            text-align: center;
+            margin-top: var(--espacamento-sm);
+        }
+        
+        /* Responsividade */
+        @media (min-width: 768px) {
+            .payment-grid {
+                grid-template-columns: 3fr 2fr;
+            }
+            
+            .amount-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-page">
+        <!-- ========================================
+             HEADER SIMPLIFICADO
+        ======================================== -->
+        <header class="payment-header">
+            <div class="container">
+                <a href="index.html" class="back-link">
+                    <span>←</span>
+                    Voltar para o site
+                </a>
+            </div>
+        </header>
+
+        <!-- ========================================
+             CONTEÚDO PRINCIPAL
+        ======================================== -->
+        <main class="payment-content">
+            <div class="container">
+                <div class="payment-wrapper">
+                    <!-- Título -->
+                    <div class="payment-title">
+                        <div class="payment-icon">♥</div>
+                        <h1>Faça sua Doação</h1>
+                        <p>Sua contribuição transforma vidas. Escolha o valor e a forma de pagamento.</p>
+                    </div>
+
+                    <!-- Grid principal -->
+                    <div class="payment-grid">
+                        <!-- Coluna esquerda: Opções -->
+                        <div class="payment-options">
+                            <!-- Card: Seleção de valor -->
+                            <div class="payment-card">
+                                <h2>Escolha o valor da doação</h2>
+                                
+                                <!-- Botões de valores predefinidos -->
+                                <div class="amount-grid">
+                                    <button class="amount-btn" data-value="20">R$ 20</button>
+                                    <button class="amount-btn active" data-value="50">R$ 50</button>
+                                    <button class="amount-btn" data-value="100">R$ 100</button>
+                                    <button class="amount-btn" data-value="200">R$ 200</button>
+                                    <button class="amount-btn" data-value="500">R$ 500</button>
+                                </div>
+                                
+                                <!-- Input para valor customizado -->
+                                <div class="custom-amount">
+                                    <span>R$</span>
+                                    <input type="number" 
+                                           id="custom-amount" 
+                                           placeholder="Outro valor"
+                                           min="1">
+                                </div>
+                            </div>
+
+                            <!-- Card: Forma de pagamento -->
+                            <div class="payment-card" style="margin-top: var(--espacamento-md);">
+                                <h2>Forma de pagamento</h2>
+                                
+                                <div class="payment-methods">
+                                    <!-- PIX -->
+                                    <div class="payment-method active" data-method="pix">
+                                        <div class="method-icon">📱</div>
+                                        <div class="method-info">
+                                            <strong>PIX</strong>
+                                            <span>Transferência instantânea</span>
+                                        </div>
+                                        <div class="method-check">✓</div>
+                                    </div>
+                                    
+                                    <!-- Cartão de Crédito -->
+                                    <div class="payment-method" data-method="card">
+                                        <div class="method-icon">💳</div>
+                                        <div class="method-info">
+                                            <strong>Cartão de Crédito</strong>
+                                            <span>Parcele em até 12x</span>
+                                        </div>
+                                        <div class="method-check">✓</div>
+                                    </div>
+                                    
+                                    <!-- Boleto -->
+                                    <div class="payment-method" data-method="boleto">
+                                        <div class="method-icon">🏦</div>
+                                        <div class="method-info">
+                                            <strong>Boleto Bancário</strong>
+                                            <span>Vencimento em 3 dias úteis</span>
+                                        </div>
+                                        <div class="method-check">✓</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coluna direita: Resumo -->
+                        <div class="summary-card payment-card">
+                            <h2>Resumo da doação</h2>
+                            
+                            <!-- Linhas do resumo -->
+                            <div class="summary-line">
+                                <span>Valor da doação</span>
+                                <span id="summary-amount">R$ 50,00</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Forma de pagamento</span>
+                                <span id="summary-method">PIX</span>
+                            </div>
+                            
+                            <!-- Total -->
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span id="summary-total">R$ 50,00</span>
+                            </div>
+                            
+                            <!-- Botão de finalizar -->
+                            <button class="btn btn-hero finalize-btn" id="finalize-btn">
+                                <span>♥</span>
+                                Finalizar Doação
+                            </button>
+                            
+                            <!-- Nota ilustrativa -->
+                            <p class="illustrative-note">
+                                Esta é uma página ilustrativa.
+                            </p>
+                            
+                            <!-- Badges de segurança -->
+                            <div class="security-note">
+                                <p>Ambiente seguro</p>
+                                <div class="security-badges">
+                                    <span class="security-badge">SSL</span>
+                                    <span class="security-badge">256bit</span>
+                                    <span class="security-badge">PCI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mensagem de impacto -->
+                    <div class="impact-message">
+                        <p>
+                            <strong>Você sabia?</strong> Com R$ <span id="impact-amount">50</span> você pode 
+                            ajudar a capacitar uma pessoa em nossos cursos de tecnologia, 
+                            abrindo portas para um futuro melhor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ========================================
+         JAVASCRIPT DA PÁGINA DE PAGAMENTO
+    ======================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ========================================
+            // VARIÁVEIS DE ESTADO
+            // ========================================
+            let selectedAmount = 50;
+            let selectedMethod = 'pix';
+            
+            // ========================================
+            // ELEMENTOS DO DOM
+            // ========================================
+            const amountButtons = document.querySelectorAll('.amount-btn');
+            const customAmountInput = document.getElementById('custom-amount');
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const summaryAmount = document.getElementById('summary-amount');
+            const summaryMethod = document.getElementById('summary-method');
+            const summaryTotal = document.getElementById('summary-total');
+            const impactAmount = document.getElementById('impact-amount');
+            const finalizeBtn = document.getElementById('finalize-btn');
+            
+            // ========================================
+            // FUNÇÕES AUXILIARES
+            // ========================================
+            
+            /**
+             * Formata valor para moeda brasileira
+             * @param {number} valor - Valor a formatar
+             * @returns {string} - Valor formatado
+             */
+            function formatarMoeda(valor) {
+                return 'R$ ' + valor.toFixed(2).replace('.', ',');
+            }
+            
+            /**
+             * Atualiza o resumo da doação
+             */
+            function atualizarResumo() {
+                summaryAmount.textContent = formatarMoeda(selectedAmount);
+                summaryTotal.textContent = formatarMoeda(selectedAmount);
+                impactAmount.textContent = selectedAmount.toFixed(0);
+                
+                // Atualiza método de pagamento
+                const methodNames = {
+                    'pix': 'PIX',
+                    'card': 'Cartão',
+                    'boleto': 'Boleto'
+                };
+                summaryMethod.textContent = methodNames[selectedMethod];
+                
+                // Habilita/desabilita botão
+                finalizeBtn.disabled = selectedAmount <= 0;
+            }
+            
+            // ========================================
+            // EVENT LISTENERS - VALORES
+            // ========================================
+            
+            // Clique nos botões de valor
+            amountButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    // Remove active de todos
+                    amountButtons.forEach(function(btn) {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Adiciona active no clicado
+                    this.classList.add('active');
+                    
+                    // Atualiza valor
+                    selectedAmount = parseFloat(this.dataset.value);
+                    
+                    // Limpa input customizado
+                    customAmountInput.value = '';
+                    
+                    // Atualiza resumo
+                    atualizarResumo();
+                });
+            });
+            
+            // Input de valor customizado
+            customAmountInput.addEventListener('input', function() {
+                // Remove active dos botões
+                amountButtons.forEach(function(btn) {
+                    btn.classList.remove('active');
+                });
+                
+                // Atualiza valor
+                selectedAmount = parseFloat(this.value) || 0;
+                
+                // Atualiza resumo
+                atualizarResumo();
+            });
+            
+            // ========================================
+            // EVENT LISTENERS - MÉTODOS DE PAGAMENTO
+            // ========================================
+            
+            paymentMethods.forEach(function(method) {
+                method.addEventListener('click', function() {
+                    // Remove active de todos
+                    paymentMethods.forEach(function(m) {
+                        m.classList.remove('active');
+                    });
+                    
+                    // Adiciona active no clicado
+                    this.classList.add('active');
+                    
+                    // Atualiza método
+                    selectedMethod = this.dataset.method;
+                    
+                    // Atualiza resumo
+                    atualizarResumo();
+                });
+            });
+            
+            // ========================================
+            // EVENT LISTENER - FINALIZAR
+            // ========================================
+            
+            finalizeBtn.addEventListener('click', function() {
+                if (selectedAmount <= 0) {
+                    alert('Por favor, selecione um valor para doação.');
+                    return;
+                }
+                
+                // Em um cenário real, aqui seria o redirect para o gateway
+                alert(
+                    '🎉 Obrigado pela sua generosidade!\n\n' +
+                    'Valor: ' + formatarMoeda(selectedAmount) + '\n' +
+                    'Método: ' + summaryMethod.textContent + '\n\n' +
+                    'Esta é uma página ilustrativa.'
+                );
+            });
+            
+            // ========================================
+            // INICIALIZAÇÃO
+            // ========================================
+            atualizarResumo();
+            
+            console.log('💳 Página de pagamento carregada!');
+        });
+    </script>
+</body>
+</html>

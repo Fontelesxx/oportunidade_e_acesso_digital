@@ -1,75 +1,699 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OAD</title>
+    <title>OAD - Oportunidade e Acesso Digital | Transformando Vidas</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 </head>
 
 <body>
-    <nav id="barra_navegacao">
-        <li><a href="">Início</a></li>
-        <li><a href="">Sobre</a></li>
-        <li><a href="">Parcerias</a></li>
-        <li><a href="">Ecossistema OAD</a></li>
-        <li><a href="">Doações</a></li>
-        <li><a href="">Contatos</a></li>
-        <li><img src="img/logo_preta.png" alt="Logo"></li>
-    </nav>
+    <!-- ========================================
+         CABEÇALHO / NAVEGAÇÃO
+         Barra fixa no topo com logo e menu
+    ======================================== -->
+    <header class="header" id="header">
+        <div class="container header-content">
+            <!-- Logo da OAD -->
+            <a href="#inicio" class="logo">
+                <img src="img/logo_preta.png" alt="logo" id="logo_oad">
+            </a>
+
+            <!-- Menu de navegação para desktop -->
+            <nav class="nav-desktop" id="nav-desktop">
+                <a href="#inicio" class="nav-link">Início</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#parcerias" class="nav-link">Parcerias</a>
+                <a href="#mapa" class="nav-link">Mapa</a>
+                <a href="#doacoes" class="nav-link">Doações</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+
+            <!-- Botão de doação no header -->
+            <a href="#doacoes" class="btn btn-hero header-cta">
+                <span class="heart-icon">♥</span>
+                Doar Agora
+            </a>
+
+            <!-- Botão hambúrguer para mobile -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+
+        <!-- Menu mobile (aparece quando clica no hambúrguer) -->
+        <nav class="nav-mobile" id="nav-mobile">
+            <a href="#inicio" class="nav-link-mobile">Início</a>
+            <a href="#sobre" class="nav-link-mobile">Sobre</a>
+            <a href="#parcerias" class="nav-link-mobile">Parcerias</a>
+            <a href="#mapa" class="nav-link-mobile">Mapa</a>
+            <a href="#doacoes" class="nav-link-mobile">Doações</a>
+            <a href="#contato" class="nav-link-mobile">Contato</a>
+            <a href="#doacoes" class="btn btn-hero mobile-cta">
+                <span class="heart-icon">♥</span>
+                Doar Agora
+            </a>
+        </nav>
+    </header>
 
 
-    <main>
-        <!-- =============================================================================
-         INICIO
-         ================================================================================= -->
+    <!-- ========================================
+         SEÇÃO SLOGAN
+         Destaque para o slogan da ONG
+    ======================================== -->
+    <section class="slogan-section">
+        <div id="container_slogan-content">
+            <div><img src="img/logo-branca-sem-fundo.png" alt="logo" id="logo_branca"></div>
+            <h2 id="slogan">Mais que sites <br>criamos <strong>Oportunidades</strong></h2>
+        </div>
+    </section>
 
-        <div id="container_inicio"><div id="foto_inicio">
-            <img src="img/logo-branca-sem-fundo.png" alt="Logo" id="logo">
-            <h1 id="slogan">Mais que sites <br>criamos <strong>oportunidades</strong></h1>
-        </div></div>
+    <section class="about-section" id="sobre">
+        <div class="container">
+            <!-- Cabeçalho da seção -->
+            <div class="section-header">
+                <span class="section-badge">Quem Somos</span>
+                <h2 class="section-title">Sobre a <span class="text-highlight">OAD</span></h2>
+                <p class="section-subtitle">
+                    Oportunidade e Acesso Digital - Mais que sites criamos oportunidades
+                </p>
+            </div>
+
+            <!-- Grid com imagem e texto -->
+            <div class="about-grid">
+                <!-- Coluna da imagem -->
+                <div class="about-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"
+                        alt="Educação Digital OAD" class="about-image">
+                    <div class="about-image-decoration"></div>
+                </div>
+
+                <!-- Coluna do texto -->
+                <div class="about-text">
+                    <p>
+                        Fundada em 2015 por Adriana Alencar, a OAD nasceu para promover a inclusão digital de
+                        microempreendedores no mundo da tecnologia. Ao longo dos anos, expandiu sua atuação com
+                        workshops, atendimentos e parcerias com instituições como IOS, Recode, AMEI-B, Gerando Falcões,
+                        TOTVS e Dell.
+                    </p>
+                    <p>
+                        De um projeto local, tornou-se uma ONG nacional de referência em inclusão digital, levando
+                        tecnologia, capacitação e oportunidade para empreendedores e comunidades em todo o país
+                    </p>
+
+                    <a href="#doacoes" class="btn btn-primary">
+                        Apoie Nossa Causa
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Acordeões com MVV, ESG e SWOT -->
+            <div class="accordions-grid">
+                <!-- Card MVV (Missão, Visão, Valores) -->
+                <div class="accordion-card">
+                    <h3 class="accordion-card-title">
+                        <span class="card-icon">🎯</span>
+                        Missão, Visão e Valores
+                    </h3>
+
+                    <!-- Item acordeão: Missão -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="missao">
+                            <span>Missão</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="missao">
+                            <p>Promover a inclusão digital para microempreendedores oferecendo sites gratuitos e
+                                capacitação tecnológica.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item acordeão: Visão -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="visao">
+                            <span>Visão</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="visao">
+                            <p>Ser referência nacional em inclusão digital impactando mais de 10mil microempreendedores,
+                                oferecendo a eles a oportunidade de migrar para os meios digitais.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item acordeão: Valores -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="valores">
+                            <span>Valores</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="valores">
+                            <p>Inclusão, transparência, inovação, ética, comprometimento.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card ESG -->
+                <div class="accordion-card">
+                    <h3 class="accordion-card-title">
+                        <span class="card-icon">🌱</span>
+                        Práticas ESG
+                    </h3>
+
+                    <!-- Item acordeão: Ambiental -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="ambiental">
+                            <span>Ambiental (E)</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="ambiental">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, laborum doloremque!
+                                Libero maiores eaque corrupti recusandae tempore vitae ipsa! Facere veritatis fugiat
+                                dolore nisi vel commodi iusto illo, omnis asperiores.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item acordeão: Social -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="social">
+                            <span>Social (S)</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="social">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid praesentium nemo quos
+                                architecto commodi eveniet facere, dolore ipsa dolorem consequuntur, illum eaque ipsam
+                                ea reiciendis quisquam doloribus minus voluptates? Animi..</p>
+                        </div>
+                    </div>
+
+                    <!-- Item acordeão: Governança -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="governanca">
+                            <span>Governança (G)</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="governanca">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod itaque iste natus aliquam,
+                                id tempore, blanditiis non repellat debitis magni quibusdam assumenda adipisci ad? Ipsa
+                                at nihil consectetur asperiores repudiandae.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card SWOT -->
+                <div class="accordion-card">
+                    <h3 class="accordion-card-title">
+                        <span class="card-icon">📊</span>
+                        Análise SWOT
+                    </h3>
+
+                    <!-- Item acordeão: Forças -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="forcas">
+                            <span>Forças</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="forcas">
+                            <p>
+                                <li>Propósito social relevante;</li>
+                                <li>Parcerias estratégicas sólidas.</li>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item acordeão: Fraquezas -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="fraquezas">
+                            <span>Fraquezas</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="fraquezas">
+                            <p>
+                                <li>Dependência financeira externa;</li>
+                                <li>Capacidade operacional limitada.</li>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item acordeão: Oportunidades -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="oportunidades">
+                            <span>Oportunidades</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="oportunidades">
+                            <p>
+                                <li>Expansão nacional e regional;</li>
+                                <li>Transformação digitl nas perifarias.</li>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item acordeão: Ameaças -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-accordion="ameacas">
+                            <span>Ameaças</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content" id="ameacas">
+                            <p>
+                                <li>Redução de investimentos públicos e sociais;</li>
+                                <li>Instabiidade economica nacional.</li>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SEÇÃO HERO (PRINCIPAL)
+         impressão do site com imagem de fundo
+    ======================================== -->
 
 
-        <!-- =============================================================================
-        SOBRE 
-        ==================================================================================-->
-        <h1 id="historia">História</h1>
 
-        <p>A OAD (Oportunidade e Acesso Digital) foi fundada em 2015 por Adriana Alencar, profissional da área de
-            tecnologia e entusiasta da inclusão digital. A iniciativa nasceu da constatação de Adriana sobre as
-            dificuldades que microempreendedores enfrentavam para conquistar visibilidade online e utilizar a internet como ferramenta de crescimento. <br><br>
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
 
-            Nos primeiros anos, a OAD concentrou esforços na construção de confiança na comunidade local por meio de
-            portfólios, histórias de impacto e atuação voluntária de jovens profissionais. Entre 2019 e 2020, a ONG
-            iniciou um processo de profissionalização: passou a produzir relatórios de impacto, realizar workshops e
-            expandir sua atuação geográfica. <br><br>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Transformando vidas na periferia</span>
+            </div>
 
-            Durante a pandemia, a demanda por digitalização cresceu substancialmente. A OAD passou a oferecer
-            atendimento intensificado a microempreendedores que precisavam migrar para o ambiente digital, consolidando
-            sua relevância em escala nacional. <br><br>
+            <!-- Título principal -->
+            <h1 class="hero-title">
+                Construindo <span class="text-highlight">esperança</span><br>
+                na comunidade
+            </h1>
 
-            A partir de 2021, a organização firmou parcerias estratégicas com instituições como o Instituto da
-            Oportunidade Social (IOS), a Recode e a AMEI-B, que reforçaram programas de capacitação e encaminhamento de
-            beneficiários. Em 2023, a parceria com a Gerando Falcões ampliou o alcance para favelas e periferias. Em
-            2024, a TOTVS aportou infraestrutura e mentorias, elevando a qualidade técnica dos serviços, e a Dell passou
-            a atuar como patrocinadora institucional, contribuindo com equipamentos, suporte tecnológico e programas de
-            inclusão digital. <br><br>
+            <!-- Descrição -->
+            <p class="hero-description">
+                A OAD é uma ONG dedicada a transformar a vida dos microempreendedores através da inclusão digital.
+            </p>
 
-            Entre 2015 e 2025, a OAD evoluiu de um projeto local para uma ONG de referência nacional em inclusão
-            digital, mantendo foco em impacto mensurável, transparência e replicabilidade do seu modelo. </p>
+            <!-- Botões de ação -->
+            <div class="hero-buttons">
+                <a href="#sobre" class="btn btn-hero">
+                    Conheça Nossa História
+                </a>
+                <a href="#doacoes" class="btn btn-hero-outline">
+                    <span class="heart-icon">♥</span>
+                    Faça uma Doação
+                </a>
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Famílias atendidas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Anos de atuação</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Parceiros estratégicos</span>
+                </div>
+            </div>
+        </div>
 
 
-        <!--======================================================================================== 
-        SOBRE ADICIONAL
-         ========================================================================================== -->
+    </section>
 
 
-    </main>
-    <footer>
 
+    <!-- ========================================
+         SEÇÃO SOBRE
+         Informações sobre a ONG com acordeões
+    ======================================== -->
+
+
+    <!-- ========================================
+         SEÇÃO PARCERIAS
+         Carrossel infinito de parceiros
+    ======================================== -->
+    <section class="partners-section" id="parcerias">
+        <div class="container">
+            <!-- Cabeçalho da seção -->
+            <div class="section-header">
+                <span class="section-badge">Nossos Parceiros</span>
+                <h2 class="section-title">Juntos somos mais <span class="text-highlight">fortes</span></h2>
+                <p class="section-subtitle">
+                    Empresas e organizações que acreditam em nossa missão e nos ajudam a transformar vidas
+                </p>
+            </div>
+        </div>
+
+        <!-- Container do carrossel (fora do container para largura total) -->
+        <div class="carousel-wrapper">
+
+            <div class="carousel-track" id="carousel-track">
+                <div class="partner-card">
+                    <img src="img/Amei-b.png" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/ios.jfif" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/Gerando-Falcoes.webp" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/totvs.jpg" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/dell.png" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/logo_preta.png" alt="Parceiros da OAD" class="fotos_patrocinadores">
+                </div>
+
+                <!-- Duplicado par funcionar o infinito (Se Deus quiser e permitir) -->
+
+
+                <div class="partner-card">
+                    <img src="img/Amei-b.png" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/ios.jfif" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/Gerando-Falcoes.webp" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/totvs.jpg" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/dell.png" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+                </div>
+                <div class="partner-card">
+                    <img src="img/logo_preta.png" alt="Parceiros da OAD" class="fotos_patrocinadores">
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to action -->
+        <div class="container partners-cta">
+            <p>Quer fazer parte desta rede de transformação?</p>
+            <a href="#contato" class="link-arrow">
+                Seja nosso parceiro <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ECOSSISTEMA OAD
+    ======================================== -->
+    <!--<section class="map-section" id="mapa">
+        <div class="container">
+             Cabeçalho da seção 
+            <div class="section-header">
+                <span class="section-badge">Onde atuamos</span>
+                <h2 class="section-title">Mapa Vivo da <span class="text-highlight">Comunidade</span></h2>
+                <p class="section-subtitle">
+                    Conheça as áreas onde a OAD atua e transforma realidades.
+                </p>
+            </div>
+
+            <Placeholder do mapa 
+            <div class="map-placeholder">
+                 Pontos decorativos animados 
+                <div class="map-dot dot-1"></div>
+                <div class="map-dot dot-2"></div>
+                <div class="map-dot dot-3"></div>
+                <div class="map-dot dot-4"></div>
+
+                 Conteúdo do placeholder 
+                <div class="map-placeholder-content">
+                    <div class="map-icon">📍</div>
+                    <h3>Mapa Interativo em Breve</h3>
+                    <p>Estamos preparando um mapa interativo para você conhecer todas as
+                        comunidades onde a OAD faz a diferença.</p>
+                </div>
+            </div>-->
+
+    <!-- Cards de localização -->
+
+
+    <!-- ========================================
+         SEÇÃO DOAÇÕES
+         Opções de doação e motivos para doar
+    ======================================== -->
+
+    <div id="container_doe"><img src="" alt="" id="img_doe"></div>
+
+    <section class="donations-section" id="doacoes">
+        <div class="container">
+            <!-- Cabeçalho da seção -->
+            <div class="section-header">
+                <span class="section-badge">Apoie-nos</span>
+                <h2 class="section-title">Faça a <span class="text-highlight">diferença</span></h2>
+                <p class="section-subtitle">
+                    Sua contribuição transforma sonhos em realidade.
+                </p>
+            </div>
+
+            <!-- Cards de opções de doação -->
+            <div class="donation-options">
+                <!-- Card 1: Doação Financeira (destacado) -->
+                <div class="donation-card">
+                    <div class="donation-icon">♥</div>
+                    <h3>Doação Financeira</h3>
+                    <p>Contribua com qualquer valor e ajude a manter nossos projetos funcionando.</p>
+                    <a href="pagamento.html" class="btn btn-outline">
+                        Contribuir <span>→</span>
+                    </a>
+                </div>
+
+                <!-- Card 2: Doação de Itens -->
+                <div class="donation-card">
+                    <div class="donation-icon">🎁</div>
+                    <h3>Doação de Itens</h3>
+                    <p>Doe roupas, alimentos, materiais escolares e muito mais.</p>
+                    <a href="pagamento.html" class="btn btn-outline">
+                        Contribuir <span>→</span>
+                    </a>
+                </div>
+
+                <!-- Card 3: Voluntariado -->
+                <div class="donation-card">
+                    <div class="donation-icon">✨</div>
+                    <h3>Voluntariado</h3>
+                    <p>Doe seu tempo e habilidades para nossa comunidade.</p>
+                    <a href="pagamento.html" class="btn btn-outline">
+                        Contribuir <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CTA grande com motivos para doar -->
+            <div class="donation-cta">
+                <!-- Elementos decorativos -->
+                <div class="cta-decoration-1"></div>
+                <div class="cta-decoration-2"></div>
+
+                <div class="donation-cta-content">
+                    <!-- Coluna esquerda: texto e botões -->
+                    <div class="cta-left">
+                        <div class="cta-badge">
+                            <span>✨</span>
+                            <span>Por que doar?</span>
+                        </div>
+                        <h3>Pronto para fazer a diferença?</h3>
+                        <p>Sua generosidade hoje planta sementes de esperança que florescerão
+                            em oportunidades para toda a comunidade.</p>
+                        <div class="cta-buttons">
+                            <a href="pagamento.html" class="btn btn-hero-outline-white">
+                                <span>♥</span> Doar Agora
+                            </a>
+                            <a href="#contato" class="btn btn-hero-outline-white">
+                                Conhecer Projetos
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Coluna direita: lista de motivos -->
+                    <div class="cta-right">
+                        <h4>Motivos para contribuir:</h4>
+                        <ul class="reasons-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                100% das doações vão para projetos sociais
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Transparência total na prestação de contas
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Você recebe atualizações sobre o impacto da sua doação
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Deduções fiscais para pessoas jurídicas (Lei Rouanet)
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                Faça parte de uma rede de transformação social
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Nota de transparência -->
+                <div class="cta-footer">
+                    <p>A OAD é uma organização sem fins lucrativos. Todas as doações são utilizadas
+                        integralmente em nossos projetos sociais.</p>
+                    <a href="#">Ver prestação de contas →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SEÇÃO CONTATO
+         Informações de contato
+    ======================================== -->
+    <section class="contact-section" id="contato">
+        <div class="container">
+            <!-- Cabeçalho da seção -->
+            <div class="section-header">
+                <span class="section-badge">Fale Conosco</span>
+                <h2 class="section-title">Entre em <span class="text-highlight">Contato</span></h2>
+                <p class="section-subtitle">
+                    Tem dúvidas, sugestões ou quer saber mais sobre nosso trabalho?
+                    Estamos sempre abertos para conversar.
+                </p>
+            </div>
+
+            <!-- Cards de contato -->
+            <div class="contact-cards">
+                <!-- Card: Endereço -->
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Endereço</h3>
+                    <p>R. Duarte de Azevedo, 284</p>
+                    <p>Santana, São Paulo - SP</p>
+                    <p>CEP: 02036-020</p>
+                </div>
+
+                <!-- Card: Telefone -->
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Telefone</h3>
+                    <p>(11) 4002-8922</p>
+                    <p>(11) 7070-7070</p>
+                </div>
+
+                <!-- Card: E-mail -->
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>E-mail</h3>
+                    <p>contato@oad.org.br</p>
+                    <p>parcerias@oad.org.br</p>
+                </div>
+
+                <!-- Card: Horários -->
+                <div class="contact-card">
+                    <div class="contact-icon">🕐</div>
+                    <h3>Horários</h3>
+                    <p>Segunda a Sexta: 08:00h - 17:30h</p>
+                    <p>Sábados e Feriados: 09:00h - 14:30h</p>
+                </div>
+            </div>
+
+            <!-- Botão WhatsApp -->
+            <div class="whatsapp-cta">
+                <p>Acompanhe também nossa comunidade no WhatsApp</p>
+                <a href="#" class="btn btn-whatsapp">
+                    Entrar na Comunidade
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         RODAPÉ
+         Links e informações finais
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Coluna 1: Logo e descrição -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="img/logo-branca-sem-fundo.png" alt="logo" id="logo_oad_footer">
+                    </div>
+                    <p class="footer-description">
+                        Oportunidade e Acesso Digital. Transformando vidas através da
+                        inclusão digital.
+                    </p>
+                    <p class="footer-slogan">"Mais que sites, criamos oportunidades"</p>
+                </div>
+
+                <!-- Coluna 2: Links Institucionais -->
+                <div class="footer-links">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#sobre">Nossa História</a></li>
+                        <li><a href="#">Transparência</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Links Apoie -->
+                <div class="footer-links">
+                    <h4>Apoie</h4>
+                    <ul>
+                        <li><a href="pagamento.html">Doação Financeira</a></li>
+                        <li><a href="#doacoes">Doação de Itens</a></li>
+                        <li><a href="#doacoes">Voluntariado</a></li>
+                        <li><a href="#parcerias">Parcerias</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Links Contato -->
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#contato">Fale Conosco</a></li>
+                        <li><a href="#">Ouvidoria</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Linha divisória -->
+            <div class="footer-divider"></div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>© 2024 OAD - Oportunidade e Acesso Digital. Todos os direitos reservados.</p>
+                <p>Feito com <span class="heart">♥</span> para a comunidade</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Link para o arquivo JavaScript -->
     <script src="script.js"></script>
 </body>
 
