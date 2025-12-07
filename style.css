@@ -66,7 +66,7 @@ button {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-
+    padding: 0 1.5rem;
 }
 
 /* ========================================
@@ -235,32 +235,15 @@ button {
     height: 70px;
 }
 
-/* Logo */
 
 
 #logo_oad {
     height: 7vh;
 }
 
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    background: #f97316;
-    color: #ffffff;
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.25rem;
-    box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.1);
-}
 
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1a1a1a;
-}
+
+
 
 /* Navegação desktop */
 .nav-desktop {
@@ -1266,6 +1249,10 @@ button {
 
 @media (max-width:767px){
 
+    .header-content{
+        justify-content: center;
+        gap: 50vh;
+    }
 
     .footer{
         padding: 2vh;
