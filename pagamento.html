@@ -1,349 +1,453 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-   
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faça sua Doação | OAD</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Estilos específicos desta página -->
     <style>
         /* ========================================
            ESTILOS DA PÁGINA DE PAGAMENTO
         ======================================== */
-        
+
         /* Container principal */
         .payment-page {
             min-height: 100vh;
-            background: var(--fundo-secundario);
+            background: #faf7f5;
         }
-        
+
         /* Header simplificado */
         .payment-header {
-            background: var(--fundo-primario);
-            border-bottom: 1px solid var(--cor-borda);
-            padding: var(--espacamento-sm) 0;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
         }
-        
+
         .back-link {
             display: inline-flex;
             align-items: center;
-            gap: var(--espacamento-xs);
-            color: var(--texto-secundario);
+            gap: 0.5rem;
+            color: #6b7280;
             font-weight: 500;
-            transition: color var(--transicao-rapida);
+            transition: color 0.2s ease;
         }
-        
+
         .back-link:hover {
-            color: var(--cor-laranja);
+            color: #f97316;
         }
-        
+
         /* Conteúdo principal */
         .payment-content {
-            padding: var(--espacamento-xl) 0;
+            padding: 3rem 0;
         }
-        
+
         .payment-wrapper {
             max-width: 900px;
             margin: 0 auto;
         }
-        
+
         /* Título da página */
         .payment-title {
             text-align: center;
-            margin-bottom: var(--espacamento-xl);
+            margin-bottom: 3rem;
         }
-        
+
         .payment-icon {
             width: 64px;
             height: 64px;
-            background: var(--cor-laranja);
-            color: var(--texto-claro);
-            border-radius: var(--radius-xl);
+            background: #f97316;
+            color: #ffffff;
+            border-radius: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            margin: 0 auto var(--espacamento-sm);
+            margin: 0 auto 1rem;
         }
-        
+
         .payment-title h1 {
             font-size: 2rem;
-            margin-bottom: var(--espacamento-xs);
+            margin-bottom: 0.5rem;
         }
-        
+
         .payment-title p {
-            color: var(--texto-secundario);
+            color: #6b7280;
         }
-        
+
         /* Grid de duas colunas */
         .payment-grid {
             display: grid;
-            gap: var(--espacamento-lg);
+            gap: 2rem;
         }
-        
+
         /* Cards de opções */
         .payment-card {
-            background: var(--fundo-primario);
-            border-radius: var(--radius-xl);
-            padding: var(--espacamento-lg);
-            box-shadow: var(--sombra-suave);
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .payment-card h2 {
             font-size: 1.125rem;
-            margin-bottom: var(--espacamento-md);
+            margin-bottom: 1.5rem;
         }
-        
+
         /* Grid de valores */
         .amount-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--espacamento-sm);
-            margin-bottom: var(--espacamento-sm);
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
-        
+
         .amount-btn {
-            padding: var(--espacamento-sm);
-            border: 2px solid var(--cor-borda);
-            border-radius: var(--radius-md);
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
             font-weight: 600;
-            color: var(--texto-primario);
-            transition: all var(--transicao-normal);
+            color: #1a1a1a;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+
         .amount-btn:hover {
-            border-color: var(--cor-laranja);
+            border-color: #f97316;
             background: rgba(249, 115, 22, 0.05);
         }
-        
+
         .amount-btn.active {
-            border-color: var(--cor-laranja);
-            background: var(--cor-laranja);
-            color: var(--texto-claro);
+            border-color: #f97316;
+            background: #f97316;
+            color: #ffffff;
         }
-        
+
         /* Input de valor customizado */
         .custom-amount {
             position: relative;
         }
-        
+
         .custom-amount span {
             position: absolute;
-            left: var(--espacamento-sm);
+            left: 1rem;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--texto-secundario);
+            color: #6b7280;
             font-weight: 500;
         }
-        
+
         .custom-amount input {
             width: 100%;
-            padding: var(--espacamento-sm);
-            padding-left: var(--espacamento-xl);
-            border: 2px solid var(--cor-borda);
-            border-radius: var(--radius-md);
+            padding: 1rem;
+            padding-left: 3rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
             font-size: 1rem;
             font-family: inherit;
-            transition: border-color var(--transicao-rapida);
+            transition: border-color 0.2s ease;
         }
-        
+
         .custom-amount input:focus {
             outline: none;
-            border-color: var(--cor-laranja);
+            border-color: #f97316;
         }
-        
+
         /* Opções de pagamento */
         .payment-methods {
             display: flex;
             flex-direction: column;
-            gap: var(--espacamento-sm);
+            gap: 1rem;
         }
-        
+
         .payment-method {
             display: flex;
             align-items: center;
-            gap: var(--espacamento-sm);
-            padding: var(--espacamento-sm);
-            border: 2px solid var(--cor-borda);
-            border-radius: var(--radius-md);
+            gap: 1rem;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
             cursor: pointer;
-            transition: all var(--transicao-normal);
+            transition: all 0.3s ease;
         }
-        
+
         .payment-method:hover {
-            border-color: var(--cor-laranja);
+            border-color: #f97316;
         }
-        
+
         .payment-method.active {
-            border-color: var(--cor-laranja);
+            border-color: #f97316;
             background: rgba(249, 115, 22, 0.05);
         }
-        
+
         .method-icon {
             width: 48px;
             height: 48px;
-            background: var(--fundo-secundario);
+            background: #faf7f5;
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            transition: all var(--transicao-normal);
+            transition: all 0.3s ease;
         }
-        
+
         .payment-method.active .method-icon {
-            background: var(--cor-laranja);
+            background: #f97316;
         }
-        
+
         .method-info {
             flex: 1;
             text-align: left;
         }
-        
+
         .method-info strong {
             display: block;
             margin-bottom: 2px;
         }
-        
+
         .method-info span {
             font-size: 0.875rem;
-            color: var(--texto-secundario);
+            color: #6b7280;
         }
-        
+
         .method-check {
             width: 24px;
             height: 24px;
-            border: 2px solid var(--cor-borda);
+            border: 2px solid #e5e7eb;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--texto-claro);
+            color: #ffffff;
             font-size: 0.75rem;
-            transition: all var(--transicao-normal);
+            transition: all 0.3s ease;
         }
-        
+
         .payment-method.active .method-check {
-            background: var(--cor-laranja);
-            border-color: var(--cor-laranja);
+            background: #f97316;
+            border-color: #f97316;
         }
-        
+
         /* Card de resumo */
         .summary-card {
             position: sticky;
             top: 100px;
         }
-        
+
+
+
+
+        /* TELA DE AGRADECIMENTO */
+
+        /* ========================================
+   ESTILOS DO MODAL DE SUCESSO (Para ser adicionado ao <style> em pagamento.html)
+   ======================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            /* Escondido por padrão */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Efeito "pop" */
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: pulse-icon 1s infinite alternate;
+        }
+
+        .modal-content h2 {
+            font-size: 1.5rem;
+            color: #f97316;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-content p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-summary {
+            background: #faf7f5;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .modal-summary p {
+            margin: 0.5rem 0;
+            color: #1a1a1a;
+            font-size: 1rem;
+        }
+
+        .modal-summary strong {
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .modal-summary span {
+            font-weight: 400;
+        }
+
+        #modal-close-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Animação para o ícone */
+        @keyframes pulse-icon {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
         .summary-line {
             display: flex;
             justify-content: space-between;
-            padding: var(--espacamento-sm) 0;
-            border-bottom: 1px solid var(--cor-borda);
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
         }
-        
+
         .summary-line span:first-child {
-            color: var(--texto-secundario);
+            color: #6b7280;
         }
-        
+
         .summary-line span:last-child {
             font-weight: 600;
         }
-        
+
         .summary-total {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--espacamento-sm) 0;
-            margin-bottom: var(--espacamento-md);
+            padding: 1rem 0;
+            margin-bottom: 1.5rem;
         }
-        
+
         .summary-total span:first-child {
             font-size: 1.125rem;
             font-weight: 600;
         }
-        
+
         .summary-total span:last-child {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--cor-laranja);
+            color: #f97316;
         }
-        
+
         /* Botão de finalizar */
         .finalize-btn {
             width: 100%;
-            padding: var(--espacamento-md);
+            padding: 1.5rem;
             font-size: 1rem;
         }
-        
+
         .finalize-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
-        
+
         /* Nota de segurança */
         .security-note {
             text-align: center;
-            margin-top: var(--espacamento-md);
+            margin-top: 1.5rem;
         }
-        
+
         .security-note p {
             font-size: 0.75rem;
-            color: var(--texto-secundario);
-            margin-bottom: var(--espacamento-xs);
+            color: #6b7280;
+            margin-bottom: 0.5rem;
         }
-        
+
         .security-badges {
             display: flex;
             justify-content: center;
-            gap: var(--espacamento-sm);
+            gap: 1rem;
         }
-        
+
         .security-badge {
             padding: 4px 8px;
-            background: var(--fundo-secundario);
+            background: #faf7f5;
             border-radius: 4px;
             font-size: 0.625rem;
             font-weight: 700;
-            color: var(--texto-secundario);
+            color: #6b7280;
         }
-        
+
         /* Mensagem de impacto */
         .impact-message {
             background: rgba(249, 115, 22, 0.1);
             border: 1px solid rgba(249, 115, 22, 0.2);
-            border-radius: var(--radius-lg);
-            padding: var(--espacamento-md);
+            border-radius: 1rem;
+            padding: 1.5rem;
             text-align: center;
-            margin-top: var(--espacamento-lg);
+            margin-top: 2rem;
         }
-        
+
         .impact-message strong {
-            color: var(--texto-primario);
+            color: #1a1a1a;
         }
-        
+
         /* Nota ilustrativa */
         .illustrative-note {
             font-size: 0.75rem;
-            color: var(--texto-secundario);
+            color: #6b7280;
             text-align: center;
-            margin-top: var(--espacamento-sm);
+            margin-top: 1rem;
         }
-        
+
         /* Responsividade */
         @media (min-width: 768px) {
             .payment-grid {
                 grid-template-columns: 3fr 2fr;
             }
-            
+
             .amount-grid {
                 grid-template-columns: repeat(5, 1fr);
             }
         }
     </style>
 </head>
+
 <body>
     <div class="payment-page">
         <!-- ========================================
@@ -378,7 +482,7 @@
                             <!-- Card: Seleção de valor -->
                             <div class="payment-card">
                                 <h2>Escolha o valor da doação</h2>
-                                
+
                                 <!-- Botões de valores predefinidos -->
                                 <div class="amount-grid">
                                     <button class="amount-btn" data-value="20">R$ 20</button>
@@ -387,21 +491,18 @@
                                     <button class="amount-btn" data-value="200">R$ 200</button>
                                     <button class="amount-btn" data-value="500">R$ 500</button>
                                 </div>
-                                
+
                                 <!-- Input para valor customizado -->
                                 <div class="custom-amount">
                                     <span>R$</span>
-                                    <input type="number" 
-                                           id="custom-amount" 
-                                           placeholder="Outro valor"
-                                           min="1">
+                                    <input type="number" id="custom-amount" placeholder="Outro valor" min="1">
                                 </div>
                             </div>
 
                             <!-- Card: Forma de pagamento -->
                             <div class="payment-card" style="margin-top: var(--espacamento-md);">
                                 <h2>Forma de pagamento</h2>
-                                
+
                                 <div class="payment-methods">
                                     <!-- PIX -->
                                     <div class="payment-method active" data-method="pix">
@@ -412,7 +513,7 @@
                                         </div>
                                         <div class="method-check">✓</div>
                                     </div>
-                                    
+
                                     <!-- Cartão de Crédito -->
                                     <div class="payment-method" data-method="card">
                                         <div class="method-icon">💳</div>
@@ -422,7 +523,7 @@
                                         </div>
                                         <div class="method-check">✓</div>
                                     </div>
-                                    
+
                                     <!-- Boleto -->
                                     <div class="payment-method" data-method="boleto">
                                         <div class="method-icon">🏦</div>
@@ -439,7 +540,7 @@
                         <!-- Coluna direita: Resumo -->
                         <div class="summary-card payment-card">
                             <h2>Resumo da doação</h2>
-                            
+
                             <!-- Linhas do resumo -->
                             <div class="summary-line">
                                 <span>Valor da doação</span>
@@ -449,24 +550,24 @@
                                 <span>Forma de pagamento</span>
                                 <span id="summary-method">PIX</span>
                             </div>
-                            
+
                             <!-- Total -->
                             <div class="summary-total">
                                 <span>Total</span>
                                 <span id="summary-total">R$ 50,00</span>
                             </div>
-                            
+
                             <!-- Botão de finalizar -->
                             <button class="btn btn-hero finalize-btn" id="finalize-btn">
                                 <span>♥</span>
                                 Finalizar Doação
                             </button>
-                            
+
                             <!-- Nota ilustrativa -->
                             <p class="illustrative-note">
                                 Esta é uma página ilustrativa.
                             </p>
-                            
+
                             <!-- Badges de segurança -->
                             <div class="security-note">
                                 <p>Ambiente seguro</p>
@@ -482,8 +583,8 @@
                     <!-- Mensagem de impacto -->
                     <div class="impact-message">
                         <p>
-                            <strong>Você sabia?</strong> Com R$ <span id="impact-amount">50</span> você pode 
-                            ajudar a capacitar uma pessoa em nossos cursos de tecnologia, 
+                            <strong>Você sabia?</strong> Com R$ <span id="impact-amount">50</span> você pode
+                            ajudar a capacitar uma pessoa em nossos cursos de tecnologia,
                             abrindo portas para um futuro melhor.
                         </p>
                     </div>
@@ -492,17 +593,35 @@
         </main>
     </div>
 
+
+    <!-- MODAL DE SUCESSO -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h2>Doação Finalizada com Sucesso!</h2>
+            <p>Sua generosidade fará uma grande diferença na vida de microempreendedores.</p>
+
+            <div class="modal-summary">
+                <p><strong>Valor:</strong> <span id="modal-amount">R$ 0,00</span></p>
+                <p><strong>Método:</strong> <span id="modal-method">PIX</span></p>
+            </div>
+
+            <a href="index.html" class="btn btn-primary" id="modal-close-btn">
+                Voltar para o Início
+            </a>
+        </div>
+    </div>
     <!-- ========================================
          JAVASCRIPT DA PÁGINA DE PAGAMENTO
     ======================================== -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // ========================================
             // VARIÁVEIS DE ESTADO
             // ========================================
             let selectedAmount = 50;
             let selectedMethod = 'pix';
-            
+
             // ========================================
             // ELEMENTOS DO DOM
             // ========================================
@@ -514,11 +633,11 @@
             const summaryTotal = document.getElementById('summary-total');
             const impactAmount = document.getElementById('impact-amount');
             const finalizeBtn = document.getElementById('finalize-btn');
-            
+
             // ========================================
             // FUNÇÕES AUXILIARES
             // ========================================
-            
+
             /**
              * Formata valor para moeda brasileira
              * @param {number} valor - Valor a formatar
@@ -527,7 +646,7 @@
             function formatarMoeda(valor) {
                 return 'R$ ' + valor.toFixed(2).replace('.', ',');
             }
-            
+
             /**
              * Atualiza o resumo da doação
              */
@@ -535,7 +654,7 @@
                 summaryAmount.textContent = formatarMoeda(selectedAmount);
                 summaryTotal.textContent = formatarMoeda(selectedAmount);
                 impactAmount.textContent = selectedAmount.toFixed(0);
-                
+
                 // Atualiza método de pagamento
                 const methodNames = {
                     'pix': 'PIX',
@@ -543,99 +662,101 @@
                     'boleto': 'Boleto'
                 };
                 summaryMethod.textContent = methodNames[selectedMethod];
-                
+
                 // Habilita/desabilita botão
                 finalizeBtn.disabled = selectedAmount <= 0;
             }
-            
+
             // ========================================
             // EVENT LISTENERS - VALORES
             // ========================================
-            
+
             // Clique nos botões de valor
-            amountButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
+            amountButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
                     // Remove active de todos
-                    amountButtons.forEach(function(btn) {
+                    amountButtons.forEach(function (btn) {
                         btn.classList.remove('active');
                     });
-                    
+
                     // Adiciona active no clicado
                     this.classList.add('active');
-                    
+
                     // Atualiza valor
                     selectedAmount = parseFloat(this.dataset.value);
-                    
+
                     // Limpa input customizado
                     customAmountInput.value = '';
-                    
+
                     // Atualiza resumo
                     atualizarResumo();
                 });
             });
-            
+
             // Input de valor customizado
-            customAmountInput.addEventListener('input', function() {
+            customAmountInput.addEventListener('input', function () {
                 // Remove active dos botões
-                amountButtons.forEach(function(btn) {
+                amountButtons.forEach(function (btn) {
                     btn.classList.remove('active');
                 });
-                
+
                 // Atualiza valor
                 selectedAmount = parseFloat(this.value) || 0;
-                
+
                 // Atualiza resumo
                 atualizarResumo();
             });
-            
+
             // ========================================
             // EVENT LISTENERS - MÉTODOS DE PAGAMENTO
             // ========================================
-            
-            paymentMethods.forEach(function(method) {
-                method.addEventListener('click', function() {
+
+            paymentMethods.forEach(function (method) {
+                method.addEventListener('click', function () {
                     // Remove active de todos
-                    paymentMethods.forEach(function(m) {
+                    paymentMethods.forEach(function (m) {
                         m.classList.remove('active');
                     });
-                    
+
                     // Adiciona active no clicado
                     this.classList.add('active');
-                    
+
                     // Atualiza método
                     selectedMethod = this.dataset.method;
-                    
+
                     // Atualiza resumo
                     atualizarResumo();
                 });
             });
-            
+
             // ========================================
             // EVENT LISTENER - FINALIZAR
             // ========================================
-            
-            finalizeBtn.addEventListener('click', function() {
+
+            finalizeBtn.addEventListener('click', function () {
                 if (selectedAmount <= 0) {
                     alert('Por favor, selecione um valor para doação.');
                     return;
                 }
-                
+
+                // 1. Atualiza o conteúdo do modal
+                document.getElementById('modal-amount').textContent = formatarMoeda(selectedAmount);
+                document.getElementById('modal-method').textContent = summaryMethod.textContent;
+
+                // 2. Exibe o modal
+                document.getElementById('success-modal').classList.add('active');
+
                 // Em um cenário real, aqui seria o redirect para o gateway
-                alert(
-                    '🎉 Obrigado pela sua generosidade!\n\n' +
-                    'Valor: ' + formatarMoeda(selectedAmount) + '\n' +
-                    'Método: ' + summaryMethod.textContent + '\n\n' +
-                    'Esta é uma página ilustrativa.'
-                );
+                console.log('Doação simulada finalizada.');
             });
-            
             // ========================================
             // INICIALIZAÇÃO
             // ========================================
             atualizarResumo();
-            
+
             console.log('💳 Página de pagamento carregada!');
         });
     </script>
 </body>
+
 </html>

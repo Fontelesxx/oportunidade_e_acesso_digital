@@ -1,5 +1,9 @@
 
 
+//Animação
+
+AOS.init()
+
 // Aguarda o DOM carregar completamente antes de executar
 document.addEventListener('DOMContentLoaded', function () {
 

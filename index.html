@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OAD - Oportunidade e Acesso Digital | Transformando Vidas</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -62,35 +65,40 @@
          SEÇÃO SLOGAN
          Destaque para o slogan da ONG
     ======================================== -->
-    <section class="slogan-section">
+    <section class="slogan-section" >
         <div id="container_slogan-content">
-            <div><img src="img/logo-branca-sem-fundo.png" alt="logo" id="logo_branca"></div>
-            <h2 id="slogan">Mais que sites <br>criamos <strong>Oportunidades</strong></h2>
+            <div data-aos="fade-right" data-aos-duration="2000"><img src="img/logo-branca-sem-fundo.png" alt="logo" id="logo_branca"></div>
+            <h2 id="slogan" data-aos="fade-right" data-aos-duration="2000">Mais que sites <br>criamos <strong >Oportunidades</strong></h2>
         </div>
     </section>
+
+    <!-- ========================================
+         SEÇÃO SOBRE
+         Informações sobre a ONG com acordeões
+    ======================================== -->
 
     <section class="about-section" id="sobre">
         <div class="container">
             <!-- Cabeçalho da seção -->
-            <div class="section-header">
+            <div class="section-header"data-aos="zoom-in-up" data-aos-duration="2000">
                 <span class="section-badge">Quem Somos</span>
                 <h2 class="section-title">Sobre a <span class="text-highlight">OAD</span></h2>
-                <p class="section-subtitle">
+                <p>
                     Oportunidade e Acesso Digital - Mais que sites criamos oportunidades
                 </p>
             </div>
 
             <!-- Grid com imagem e texto -->
-            <div class="about-grid">
+            <div class="about-grid"data-aos="zoom-in-up" data-aos-duration="2000">
                 <!-- Coluna da imagem -->
                 <div class="about-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"
-                        alt="Educação Digital OAD" class="about-image">
-                    <div class="about-image-decoration"></div>
+                        alt="Educação Digital OAD" class="about-image" id="historia_oad">
+                    
                 </div>
 
                 <!-- Coluna do texto -->
-                <div class="about-text">
+                <div class="about-text" data-aos="zoom-in-up" data-aos-duration="2000">
                     <p>
                         Fundada em 2015 por Adriana Alencar, a OAD nasceu para promover a inclusão digital de
                         microempreendedores no mundo da tecnologia. Ao longo dos anos, expandiu sua atuação com
@@ -109,10 +117,13 @@
                 </div>
             </div>
 
+            
+
+
             <!-- Acordeões com MVV, ESG e SWOT -->
             <div class="accordions-grid">
                 <!-- Card MVV (Missão, Visão, Valores) -->
-                <div class="accordion-card">
+                <div class="accordion-card" data-aos="fade-right" data-aos-duration="2000">
                     <h3 class="accordion-card-title">
                         <span class="card-icon">🎯</span>
                         Missão, Visão e Valores
@@ -155,7 +166,7 @@
                 </div>
 
                 <!-- Card ESG -->
-                <div class="accordion-card">
+                <div class="accordion-card" data-aos="fade-right" data-aos-duration="2000">
                     <h3 class="accordion-card-title">
                         <span class="card-icon">🌱</span>
                         Práticas ESG
@@ -202,7 +213,7 @@
                 </div>
 
                 <!-- Card SWOT -->
-                <div class="accordion-card">
+                <div class="accordion-card" data-aos="fade-right" data-aos-duration="2000">
                     <h3 class="accordion-card-title">
                         <span class="card-icon">📊</span>
                         Análise SWOT
@@ -275,28 +286,28 @@
 
 
 
-    <section class="hero" id="inicio">
+    <section class="hero" id="inicio" data-aos="fade-up" data-aos-duration="1000">
         <div class="hero-overlay"></div>
 
         <div class="container hero-content">
-            <div class="hero-badge">
+            <div class="hero-badge"data-aos="zoom-in-up" data-aos-duration="2000">
                 <span class="badge-dot"></span>
                 <span>Transformando vidas na periferia</span>
             </div>
 
             <!-- Título principal -->
-            <h1 class="hero-title">
+            <h1 class="hero-title"data-aos="zoom-in-up" data-aos-duration="2000">
                 Construindo <span class="text-highlight">esperança</span><br>
                 na comunidade
             </h1>
 
             <!-- Descrição -->
-            <p class="hero-description">
+            <p class="hero-description"data-aos="zoom-in-up" data-aos-duration="2000">
                 A OAD é uma ONG dedicada a transformar a vida dos microempreendedores através da inclusão digital.
             </p>
 
             <!-- Botões de ação -->
-            <div class="hero-buttons">
+            <div class="hero-buttons"data-aos="zoom-in-up" data-aos-duration="2000">
                 <a href="#sobre" class="btn btn-hero">
                     Conheça Nossa História
                 </a>
@@ -307,7 +318,7 @@
             </div>
 
             <!-- Estatísticas -->
-            <div class="hero-stats">
+            <div class="hero-stats"data-aos="zoom-in-up" data-aos-duration="2000">
                 <div class="stat-item">
                     <span class="stat-number">500+</span>
                     <span class="stat-label">Famílias atendidas</span>
@@ -328,11 +339,7 @@
 
 
 
-    <!-- ========================================
-         SEÇÃO SOBRE
-         Informações sobre a ONG com acordeões
-    ======================================== -->
-
+    
 
     <!-- ========================================
          SEÇÃO PARCERIAS
@@ -341,7 +348,7 @@
     <section class="partners-section" id="parcerias">
         <div class="container">
             <!-- Cabeçalho da seção -->
-            <div class="section-header">
+            <div class="section-header"data-aos="zoom-in-up" data-aos-duration="2000">
                 <span class="section-badge">Nossos Parceiros</span>
                 <h2 class="section-title">Juntos somos mais <span class="text-highlight">fortes</span></h2>
                 <p class="section-subtitle">
@@ -351,7 +358,7 @@
         </div>
 
         <!-- Container do carrossel (fora do container para largura total) -->
-        <div class="carousel-wrapper">
+        <div class="carousel-wrapper"data-aos="zoom-in-up" data-aos-duration="2000">
 
             <div class="carousel-track" id="carousel-track">
                 <div class="partner-card">
@@ -410,7 +417,7 @@
         </div>
 
         <!-- Call to action -->
-        <div class="container partners-cta">
+        <div class="container partners-cta" data-aos="zoom-in-up" data-aos-duration="2000">
             <p>Quer fazer parte desta rede de transformação?</p>
             <a href="#contato" class="link-arrow">
                 Seja nosso parceiro <span>→</span>
@@ -459,7 +466,7 @@
 
     <div id="container_doe"><img src="" alt="" id="img_doe"></div>
 
-    <section class="donations-section" id="doacoes">
+    <section class="donations-section" id="doacoes" data-aos="fade-right" data-aos-duration="2000">
         <div class="container">
             <!-- Cabeçalho da seção -->
             <div class="section-header">
@@ -504,14 +511,14 @@
             </div>
 
             <!-- CTA grande com motivos para doar -->
-            <div class="donation-cta">
+            <div class="donation-cta"data-aos="zoom-in-up" data-aos-duration="2000">
                 <!-- Elementos decorativos -->
                 <div class="cta-decoration-1"></div>
                 <div class="cta-decoration-2"></div>
 
-                <div class="donation-cta-content">
+                <div class="donation-cta-content"data-aos="zoom-in-up" data-aos-duration="2000">
                     <!-- Coluna esquerda: texto e botões -->
-                    <div class="cta-left">
+                    <div class="cta-left"data-aos="zoom-in-up" data-aos-duration="2000">
                         <div class="cta-badge">
                             <span>✨</span>
                             <span>Por que doar?</span>
@@ -530,7 +537,7 @@
                     </div>
 
                     <!-- Coluna direita: lista de motivos -->
-                    <div class="cta-right">
+                    <div class="cta-right"data-aos="zoom-in-up" data-aos-duration="2000">
                         <h4>Motivos para contribuir:</h4>
                         <ul class="reasons-list">
                             <li>
@@ -558,7 +565,7 @@
                 </div>
 
                 <!-- Nota de transparência -->
-                <div class="cta-footer">
+                <div class="cta-footer"data-aos="fade-up" data-aos-duration="2000">
                     <p>A OAD é uma organização sem fins lucrativos. Todas as doações são utilizadas
                         integralmente em nossos projetos sociais.</p>
                     <a href="#">Ver prestação de contas →</a>
@@ -571,10 +578,10 @@
          SEÇÃO CONTATO
          Informações de contato
     ======================================== -->
-    <section class="contact-section" id="contato">
+    <section class="contact-section" id="contato"data-aos="fade-up" data-aos-duration="2000">
         <div class="container">
             <!-- Cabeçalho da seção -->
-            <div class="section-header">
+            <div class="section-header"data-aos="fade-up" data-aos-duration="2000">
                 <span class="section-badge">Fale Conosco</span>
                 <h2 class="section-title">Entre em <span class="text-highlight">Contato</span></h2>
                 <p class="section-subtitle">
@@ -584,7 +591,7 @@
             </div>
 
             <!-- Cards de contato -->
-            <div class="contact-cards">
+            <div class="contact-cards"data-aos="fade-up" data-aos-duration="2000">
                 <!-- Card: Endereço -->
                 <div class="contact-card">
                     <div class="contact-icon">📍</div>
@@ -620,7 +627,7 @@
             </div>
 
             <!-- Botão WhatsApp -->
-            <div class="whatsapp-cta">
+            <div class="whatsapp-cta"data-aos="fade-up" data-aos-duration="2000">
                 <p>Acompanhe também nossa comunidade no WhatsApp</p>
                 <a href="#" class="btn btn-whatsapp">
                     Entrar na Comunidade
