@@ -1301,13 +1301,13 @@ button {
         height: 14vh;
     }
 
-    #container_slogan-content{
+    #container_slogan-content{ 
         height: 35vh;
     }
     
 
     .slogan-section{
-        height:35vh;
+        height:40vh;
     }
 }
 
