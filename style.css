@@ -30,6 +30,7 @@ body {
     color: #1a1a1a;
     background-color: #ffffff;
     overflow-x: hidden;
+    padding: 2vh;
 }
 
 
@@ -1251,7 +1252,7 @@ button {
 
     .header-content{
         justify-content: center;
-        gap: 50vh;
+        gap: 40vh;
     }
 
     .footer{
