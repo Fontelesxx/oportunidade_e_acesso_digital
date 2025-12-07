@@ -693,9 +693,11 @@ button {
 .carousel-wrapper {
     position: relative;
     margin: 2rem 0;
+    overflow-x:auto ; /* cria a barrinha */
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
 }
-
-
 
 .fotos_patrocinadores {
     height: 20vh;
@@ -705,25 +707,31 @@ button {
 .carousel-track {
     display: flex;
     gap: 2rem;
-    animation: slide 7s linear infinite;
+    animation: slide 8s linear infinite;
+    padding-right: 2rem;
+    
 }
 
-@keyframes slide {
-    0% {
-        transform: translateX(0);
-    }
+/* esconde a barrinha */
 
-    100% {
-        transform: translateX(-50%);
-    }
+.carousel-wrapper::-webkit-scrollbar{
+    display: none;
+}
+
+
+@keyframes slide{
+    from {translate: 0;}
+    to{translate: -100%;}
 }
 
 /* Card de parceiro */
 .partner-card {
     flex-shrink: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+    width: 40vh;
     background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 1rem;
@@ -740,6 +748,7 @@ button {
 
 .partners-cta {
     text-align: center;
+    margin-top: 6vh;
 }
 
 
