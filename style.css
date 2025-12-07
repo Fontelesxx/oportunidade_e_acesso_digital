@@ -506,7 +506,7 @@ button {
     font-weight: 600;
 }
 
-#container_slogan-content {
+#container_slogan-content { 
     position: relative;
     display: flex;
     align-items: center;
@@ -1283,13 +1283,13 @@ button {
     }
 
     .about-grid {
-    display: grid;
-    gap: 3rem;
-    margin-bottom: 4rem;
-    grid-template-areas:
-        "image"
-        " text"
-    ;
+        display: grid;
+        gap: 3rem;
+        margin-bottom: 4rem;
+        grid-template-areas:
+            "image"
+            " text"
+            ;
     }
     .hero-content{
         padding: 3vh;
@@ -1299,6 +1299,10 @@ button {
     }
     #logo_branca{
         height: 14vh;
+    }
+
+    #container_slogan-content{
+        height: 35vh;
     }
     
 
