@@ -1251,8 +1251,9 @@ button {
 @media (max-width:767px){
 
     .header-content{
-        justify-content: center;
-        gap: 40vh;
+        max-width: 100%;
+        width: 100%;
+        justify-content: space-between;
     }
 
     .footer{
