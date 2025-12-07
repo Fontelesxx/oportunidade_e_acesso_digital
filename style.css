@@ -710,11 +710,11 @@ button {
 
 @keyframes slide {
     0% {
-        transform: translateY(0);
+        transform: translateX(0);
     }
 
-    200% {
-        transform: translateX(-90%);
+    100% {
+        transform: translateX(-50%);
     }
 }
 
