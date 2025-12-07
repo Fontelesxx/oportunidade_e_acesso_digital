@@ -1302,12 +1302,12 @@ button {
     }
 
     #container_slogan-content{ 
-        height: 35vh;
+        height: 30vh;
     }
     
 
     .slogan-section{
-        height:35vh;
+        height:30vh;
         padding-top:16vh;
     }
 }
