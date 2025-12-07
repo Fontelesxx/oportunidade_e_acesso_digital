@@ -513,11 +513,8 @@ button {
     background-position: center;
     background-size: cover;
     border-radius: 1vh;
+    height: 80vh;
 }
-
-
-
-
 
 #slogan {
     font-weight: 200;
@@ -535,7 +532,7 @@ button {
     z-index: 1;
     color: white;
     font-size: 6vh;
-    height: 70vh;
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
     box-shadow: 0 40px 40px rgba(0, 0, 0, 0.2);
@@ -1298,13 +1295,15 @@ button {
         padding: 3vh;
     }
     #slogan{
-        font-size: 5vh;
+        font-size: 3vh;
     }
     #logo_branca{
-        height: 20vh;
+        height: 14vh;
     }
-    #container_slogan-content{
-        height: 40vh;
+    
+
+    .slogan-section{
+        height:35vh;
     }
 }
 
@@ -1348,8 +1347,9 @@ button {
     #logo_branca{
         height: 23vh;
     }
-    #container_slogan-content{
-        height: 40vh;
+    
+    .slogan-section{
+        height:60vh;
     }
 
     /* Tipografia maior */
