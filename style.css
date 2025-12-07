@@ -1269,6 +1269,10 @@ button {
 
 @media (max-width:767px){
 
+
+    .footer{
+        padding: 2vh;
+    }
     .container{
         justify-items: center;
     }
