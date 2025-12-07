@@ -30,7 +30,7 @@ body {
     color: #1a1a1a;
     background-color: #ffffff;
     overflow-x: hidden;
-    padding: 2vh;
+    
 }
 
 
@@ -67,7 +67,7 @@ button {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+   padding: 3vh;
 }
 
 /* ========================================
@@ -1256,8 +1256,18 @@ button {
         justify-content: space-between;
     }
 
+    .footer-links ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5vh;
+        margin: 5vh;
+        text-align: center;
+  
+    }
+
     .footer{
         padding: 2vh;
+        
     }
     .container{
         justify-items: center;
