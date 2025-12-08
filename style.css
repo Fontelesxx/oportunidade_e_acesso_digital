@@ -693,7 +693,7 @@ button {
 .carousel-wrapper {
     position: relative;
     margin: 2rem 0;
-    overflow-x:auto ; /* cria a barrinha */
+ /* cria a barrinha */
     display: flex;
     width: 90%;
     margin: 0 auto;
@@ -709,14 +709,9 @@ button {
     gap: 2rem;
     animation: slide 8s linear infinite;
     padding-right: 2rem;
-    
 }
 
-/* esconde a barrinha */
 
-.carousel-wrapper::-webkit-scrollbar{
-    display: none;
-}
 
 
 @keyframes slide{
